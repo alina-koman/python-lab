@@ -1,5 +1,5 @@
 class Lamp:
-    def __init__(self, type_="Нема типу", power=0, quantity=0, name="None", price=0, character="Нема характер"):
+    def __init__(self, type_="Нема типу", power=0, quantity=0, name=None, price=0, character="Нема характер"):
         self.__type = type_
         self.__power = power
         self.__quantity = quantity
@@ -21,10 +21,10 @@ class Lamp:
 
     def __str__(self): 
         return (f"Type: {self.__type} \nPower: {self.__power} W\n"
-                f"Quantity: {self.__quantity} \nName: {self.__name}\nPrice: {self.price}\nCharacter: {self.character}")
+                 f"Quantity: {self.__quantity} \nName: {self.__name or 'Не вказано'}\nPrice: {self.price} грн\nCharacter: {self.character}")
 
     def __repr__(self):
-        return f"Lamp({self.__type}, {self.__power} Вт, {self.__quantity} шт, {self.__name}, {self.price}, {self.character})\n"
+         return f"Lamp({self.__type}, {self.__power} Вт, {self.__quantity} шт, {self.__name or 'None'}, {self.price}, {self.character})"
 
     def __del__(self):
         print("The object is deleted")
